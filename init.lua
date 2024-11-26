@@ -158,9 +158,22 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
-
 vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'kk', '<esc>')
+
+vim.keymap.set('n', 's', '<Nop>')
+vim.keymap.set('n', '<C-h>', '<C-w>h')
+vim.keymap.set('n', '<C-j>', '<C-w>j')
+vim.keymap.set('n', '<C-k>', '<C-w>k')
+vim.keymap.set('n', '<C-l>', '<C-w>l')
+vim.keymap.set('n', 'gh', 'gT')
+vim.keymap.set('n', 'gl', 'gt')
+vim.keymap.set('n', 'gn', ':<C-u>tabnew<CR>')
+vim.keymap.set('n', 'ss', ':<C-u>sp<CR>')
+vim.keymap.set('n', 'sv', ':<C-u>vs<CR>')
+
+-- Do not yank with x
+vim.keymap.set('n', 'x', '"_x')
 
 --  See `:help vim.keymap.set()`
 
@@ -241,6 +254,11 @@ require('lazy').setup({
   --
   -- Use `opts = {}` to force a plugin to be loaded.
   --
+  {
+    'akinsho/toggleterm.nvim',
+    version = '*',
+    opts = {},
+  },
 
   -- Here is a more advanced example where we pass configuration
   -- options to `gitsigns.nvim`. This is equivalent to the following Lua:
@@ -940,7 +958,7 @@ require('lazy').setup({
   -- require 'kickstart.plugins.indent_line',
   -- require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
-  require 'kickstart.plugins.neo-tree',
+  -- require 'kickstart.plugins.neo-tree',
   -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
