@@ -162,10 +162,6 @@ vim.keymap.set('i', 'jj', '<esc>')
 vim.keymap.set('i', 'kk', '<esc>')
 
 vim.keymap.set('n', 's', '<Nop>')
-vim.keymap.set('n', '<C-h>', '<C-w>h')
-vim.keymap.set('n', '<C-j>', '<C-w>j')
-vim.keymap.set('n', '<C-k>', '<C-w>k')
-vim.keymap.set('n', '<C-l>', '<C-w>l')
 vim.keymap.set('n', 'gh', 'gT')
 vim.keymap.set('n', 'gl', 'gt')
 vim.keymap.set('n', 'gn', ':<C-u>tabnew<CR>')
@@ -257,7 +253,18 @@ require('lazy').setup({
   {
     'akinsho/toggleterm.nvim',
     version = '*',
-    opts = {},
+    opts = {
+      open_mapping = [[<c-t>]],
+      hide_numbers = true,
+      shade_filetypes = {},
+      shade_terminals = true,
+      shading_factor = 2,
+      start_in_insert = true,
+      insert_mappings = true,
+      persist_size = true,
+      direction = 'horizontal',
+      close_on_exit = true,
+    },
   },
 
   -- Here is a more advanced example where we pass configuration
